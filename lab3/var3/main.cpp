@@ -2,27 +2,33 @@
 #include "Triangle.h"
 
 int main() {
-    Triangle t1(0, 0, 3, 0, 0, 4);
-    Triangle t2(1, 1, 4, 1, 1, 5);
+    // Создание треугольников
+    Triangle t1(Point(0, 0), Point(3, 0), Point(0, 4));
+    Triangle t2(Point(0, 0), Point(6, 0), Point(0, 8));
 
-    std::cout << "Triangle 1 area: " << t1.area() << std::endl;
-    std::cout << "Triangle 2 area: " << t2.area() << std::endl;
+    // Вывод треугольников на экран
+    std::cout << "Triangle 1: " << t1 << std::endl;
+    std::cout << "Triangle 2: " << t2 << std::endl;
 
-    if (t1 == t2) {
-        std::cout << "Triangles have equal areas." << std::endl;
-    } else if (t1 != t2) {
-        std::cout << "Triangles have different areas." << std::endl;
+    // Сравнение площадей треугольников
+    if (t1 > t2) {
+        std::cout << "Triangle 1 has a larger area than Triangle 2." << std::endl;
+    } else if (t1 < t2) {
+        std::cout << "Triangle 1 has a smaller area than Triangle 2." << std::endl;
+    } else {
+        std::cout << "Triangle 1 has the same area as Triangle 2." << std::endl;
     }
 
-    if (t1 < t2) {
-        std::cout << "Triangle 1 has smaller area than Triangle 2." << std::endl;
-    } else if (t1 > t2) {
-        std::cout << "Triangle 1 has larger area than Triangle 2." << std::endl;
-    }
+    // Создание вектора смещения
+    Vector v(1, 1);
 
-    t1 += std::make_pair(2.0, 2.0); // Смещаем треугольник 1 на вектор (2, 2)
-    std::cout << "Triangle 1 area after translation: " << t1.area() << std::endl;
+    // Смещение треугольника t1 на вектор v
+    t1 += v;
+
+    // Вывод смещенного треугольника на экран
+    std::cout << "Triangle 1 after translation: " << t1 << std::endl;
 
     return 0;
 }
+
 
